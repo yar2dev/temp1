@@ -9,6 +9,10 @@ metadata:
     heritage: "{{ .Release.Service }}"
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      name: {{ template "redis.fullname" . }}
+      app: {{ template "fullname" . }}
   template:
     metadata:
       labels:

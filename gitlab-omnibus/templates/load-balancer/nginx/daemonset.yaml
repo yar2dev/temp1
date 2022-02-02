@@ -4,6 +4,9 @@ metadata:
   name: nginx
   namespace: nginx-ingress
 spec:
+  selector:
+    matchLabels:
+      app: nginx
   template:
     metadata:
       labels:
@@ -43,3 +46,4 @@ spec:
         - --default-backend-service=nginx-ingress/default-http-backend
         - --configmap=nginx-ingress/nginx
         - --tcp-services-configmap=nginx-ingress/tcp-ports
+
